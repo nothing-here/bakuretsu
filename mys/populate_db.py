@@ -17,7 +17,6 @@ def main():
     cfg_path = r'/home/michael/Desktop/site_test/mys/scripts/lcfg.csv'
     cfg_file = open(cfg_path,'r');
     attributes = []
-    entries = []
     
     attributes_str = cfg_file.readline()
     
@@ -28,24 +27,25 @@ def main():
         tags = []
     
         parsed_csv = line.split(',')
-        for value in parsed_csv:
-            value = value.strip()
+        for i in range(0,len(parsed_csv)):
+            parsed_csv[i] = parsed_csv[i].strip()
     
-        pad_array(parsed_csv,3)
-    
-        tags = parsed_csv[2].split('|')
-        for tag in tags:
-            tag = tag.strip()
+        tags = parsed_csv[4].split('|')
+        for i in range(0,len(tags)):
+            tags[i] = tags[i].strip()
 
         # create ImageDetails entry
-        ImageDetails_entry = ImageDetails(image_name = parsed_csv[0],
-                                           char_names = parsed_csv[1],
-                                           time_added = timezone.now(),
-                                           path = parsed_csv[0])
+        ImageDetails_entry = ImageDetails(title = parsed_csv[0],
+                                          author = parsed_csv[1],
+                                          description = parsed_csv[2],
+                                          char_names = parsed_csv[3],
+                                          time_added = timezone.now(),
+                                          path = parsed_csv[0] + '.png')
         ImageDetails_entry.save()
 
         # create Associated ImageTag
         for tag in tags:
+            print('adding tag to db: ' + tag)
             ImageTag_entry = ImageTag(image_id = ImageDetails_entry,
                                        tag = tag)
             ImageTag_entry.save()

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import ImageDetails
+from .models import ImageDetails, ImageTag
 # Create your views here.
 
 def smug_home(request):
@@ -27,9 +27,11 @@ def browse(request):
 
 def disp_image(request, image_id):
     img = ImageDetails.objects.get(pk=image_id)
+    tags = ImageTag.objects.filter(image_id=img)
     template = loader.get_template('l/disp_image.html')
     context = {
         'img': img,
+        'tags': tags,
     }
     return HttpResponse(template.render(context, request))
 

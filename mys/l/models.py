@@ -4,7 +4,9 @@ from django.db import models
 
 # TODO: change image_name to be primary key
 class ImageDetails(models.Model):
-    image_name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
+    author = models.CharField(max_length=50,default='')
+    description = models.CharField(max_length=100,default='')
     char_names = models.CharField(max_length=50,default='')
     time_added = models.DateTimeField()
     path = models.CharField(max_length=50,default='')
