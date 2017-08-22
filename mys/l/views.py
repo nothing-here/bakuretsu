@@ -1,0 +1,38 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import ImageDetails
+# Create your views here.
+
+def smug_home(request):
+    newest_imgs_r1 = ImageDetails.objects.all()[:4]
+    newest_imgs_r2 = ImageDetails.objects.all()[4:8]
+    template = loader.get_template('l/main.html')
+    context = {
+       'newest_imgs_r1': newest_imgs_r1,
+       'newest_imgs_r2': newest_imgs_r2,
+    } 
+    return HttpResponse(template.render(context, request))
+
+def browse(request):
+    newest_imgs_r1 = ImageDetails.objects.all()[:4]
+    newest_imgs_r2 = ImageDetails.objects.all()[4:8]
+    template = loader.get_template('l/main.html')
+    context = {
+       'newest_imgs_r1': newest_imgs_r1,
+       'newest_imgs_r2': newest_imgs_r2,
+    } 
+    return HttpResponse(template.render(context, request))
+
+def disp_image(request, image_id):
+    img = ImageDetails.objects.get(pk=image_id)
+    template = loader.get_template('l/disp_image.html')
+    context = {
+        'img': img,
+    }
+    return HttpResponse(template.render(context, request))
+
+def test(request):
+    template = loader.render_to_string('l/test.html')
+    return HttpResponse(template)

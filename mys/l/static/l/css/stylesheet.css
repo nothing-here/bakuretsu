@@ -1,0 +1,84 @@
+.header{
+	font-size: 400%;	
+    font-weight:bold;
+    cursor:default;
+}
+.bottom-right{
+	margin-top: 50px;
+	float: right;
+}
+.divider-vertical-right{
+	height: 30px;
+    margin: 10px 9px 10px 9px;
+	border-right: 1px solid #8D9D8D;
+}
+.pad-test{
+	margin: -10px 10px 0px -9px;
+}
+.front-button-align {
+	margin: 5px 5px -50px 5px;
+}
+.jumbotron{
+	margin: -12px 0px 12px 0px;
+	background-color: #FFD373;
+	background-image: url("../imgs/assets/bestgirl.png");
+	background-size: contain;
+	
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+.jumbo-text{
+	font-size: 150%;
+}
+.right-left-margin{
+	margin: 0px 10px;
+}
+.top-bottom-margin{
+	margin: 10px 0px;
+}
+
+.form-text-color{
+	color: auto;
+}
+.image-title{
+	font-size: 200%;
+}
+.image-author{
+	font-size: 120%;
+	font-style:italic;
+}
+.image-tags{
+	color: blue;
+	margin: 0px 5px 0px 0px;
+}
+.footer {
+color: white;
+  position: relative;
+  height: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #222222;
+  text-align: center;
+}
+
+@media (max-width: 978px){
+	.divider-vertical-right{
+		height: auto;
+		margin: auto;
+		border-right: none;
+	}
+	.pad-test{
+		margin: auto;
+	}
+	.form-text-color{
+		color: white;
+	}
+}
+
+@media (max-width: 500px){
+	.jumbotron{
+		background-image: none;
+	}
+}
