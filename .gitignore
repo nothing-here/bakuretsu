@@ -3,7 +3,7 @@
 *.swo
 
 #ignore caches
-*__pychache__*
+*__pycache__*
 *migrations*
 
 devenv/
