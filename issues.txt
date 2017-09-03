@@ -1,0 +1,3 @@
+TODO:
+-Check file signatures of uploads for server-side processing
+-Figure out django files stuff in models

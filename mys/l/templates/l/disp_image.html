@@ -1,0 +1,19 @@
+{% extends "l/header_footer_template.html" %}
+
+{% load static %}
+
+{% block content %}
+
+	<div>
+		<p>image is: {{ img.title }}</p>
+	</div>
+	{% with "l/imgs/db_assets/"|add:img.path as static_path %}
+		<img src="{% static static_path %}" height="50%" width="50%">
+	{% endwith %}
+	<div>
+		{% for tag in tags %}
+			<span class="image-tags"><a href="#">#{{ tag.tag }}</a></span>
+		{% endfor %}
+	</div>
+
+{% endblock %}

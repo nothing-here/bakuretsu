@@ -1,0 +1,10 @@
+#ignore .swp files
+**/*.swp
+**/*.swo
+
+#ignore caches
+**/__pycache__/
+**/migrations/
+
+devenv/
+ex/

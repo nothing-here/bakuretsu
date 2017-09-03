@@ -1,0 +1,32 @@
+{% extends "l/header_footer_template.html" %}
+
+{% load static %}
+
+{% block content %}
+
+	<div class="form-group right-left-margin form-text-color"> 
+		<form action="http://localhost:8000/smug/upload/" method="post"> {% csrf_token %}
+			<label for="title">Title:</label><br>
+			<input type="text" name="title"><br>
+			<label for="author">Author:</label><br>
+			<input type="text" name="author"><br>
+			<label for="description">Description:</label><br>
+			<input type="text" name="description"><br>
+            <label for="name">Character Name:</label><br>
+            <input type="text" name="name"><br>
+			<label for="tags">Tags:</label><br>
+			<input type="text" name="tags"><br>
+			<label for="upload">Image Upload:</label>
+			<input type="file" accept=".png,.jpg" class="form-control-file" id="upload" name="upload-img" aria-describedby="fileHelp">
+			<small id="fileHelp" class="form-text text-muted">Please keep files under 0MB.</small>
+			<br> <br>
+			<button type="submit" class="btn btn-primary">Submit</button> <br> 
+			<br>
+		</form>
+	</div>
+
+{% endblock %}
+
+{% block custom_js %}
+	<script src="{% static "l/js/upload_script.js" %}"></script>
+{% endblock %}
