@@ -21,7 +21,6 @@ class ImageTag(models.Model):
     def __str__(self):
         return str(self.image_id)
 
-
 # User Classes
 
 class User(models.Model):
@@ -34,4 +33,3 @@ class ImageComment(models.Model):
     image_id = models.ForeignKey(ImageDetails,on_delete=models.CASCADE)
     user_id = models.ForeignKey(User)
     comment = models.CharField(max_length=300,default='')
-
